@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="theme-color" content="#0a0e27">
+    <title>AI智能肌肤检测</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 粒子背景 -->
+    <div class="particles" id="particles"></div>
+
+    <!-- 主内容区 -->
+    <div class="main-content">
+        <!-- AI标题 -->
+        <div class="ai-title">
+            <h1>AI SKIN ANALYSIS</h1>
+            <p class="ai-subtitle">智能肌肤检测系统</p>
+        </div>
+
+        <!-- 主卡片 -->
+        <div class="feature-card">
+            <div class="card-decoration grid-bg"></div>
+            <div class="card-decoration scan-effect"></div>
+            <div class="card-decoration glow-orb orb-1"></div>
+            <div class="card-decoration glow-orb orb-2"></div>
+            
+            <h1 class="card-title">AI智能肌肤检测</h1>
+            <p class="card-subtitle">科学护肤，从了解肌肤开始！</p>
+            
+            <button class="upload-btn" id="uploadBtn">
+                <span style="position: relative; z-index: 1;">上传照片即可检测</span>
+            </button>
+        </div>
+
+    </div>
+
+    <!-- 底部导航 -->
+    <nav class="bottom-nav">
+        <a href="#" class="nav-item active">
+            <span class="nav-icon">🏠</span>
+            <span class="nav-text">首页</span>
+        </a>
+        <a href="#" class="nav-item">
+            <span class="nav-icon">📋</span>
+            <span class="nav-text">报告</span>
+        </a>
+        <a href="#" class="nav-item">
+            <span class="nav-icon">📊</span>
+            <span class="nav-text">介绍</span>
+        </a>
+        <a href="#" class="nav-item">
+            <span class="nav-icon">👤</span>
+            <span class="nav-text">我的</span>
+        </a>
+    </nav>
+
+    <!-- 隐藏的文件输入 -->
+    <input type="file" id="fileInput" accept="image/*" style="display: none;">
+
+    <!-- 选择方式模态框 -->
+    <div class="choice-modal" id="choiceModal" style="display: none;">
+        <div class="choice-overlay"></div>
+        <div class="choice-content">
+            <h3 class="choice-title">选择照片方式</h3>
+            <button class="choice-btn" id="galleryBtn">
+                <span class="choice-icon">🖼️</span>
+                <span class="choice-text">从相册选择</span>
+            </button>
+            <button class="choice-btn" id="cameraChoiceBtn">
+                <span class="choice-icon">📷</span>
+                <span class="choice-text">拍照</span>
+            </button>
+            <button class="choice-cancel" id="cancelChoice">取消</button>
+        </div>
+    </div>
+
+    <!-- 相机模态框 -->
+    <div class="camera-modal" id="cameraModal" style="display: none;">
+        <div class="camera-container">
+            <div class="camera-header">
+                <button class="camera-close" id="closeCameraBtn">
+                    <span>←</span>
+                    <span>返回</span>
+                </button>
+                <h3>拍摄照片</h3>
+                <div style="width: 70px;"></div>
+            </div>
+            <div class="camera-view">
+                <video id="cameraVideo" autoplay playsinline></video>
+                <canvas id="cameraCanvas"></canvas>
+                <div class="camera-guide">
+                    <div class="guide-corner top-left"></div>
+                    <div class="guide-corner top-right"></div>
+                    <div class="guide-corner bottom-left"></div>
+                    <div class="guide-corner bottom-right"></div>
+                </div>
+                <div class="camera-hint">请将面部置于框内</div>
+            </div>
+            <div class="camera-controls">
+                <button class="camera-switch" id="switchCamera">🔄</button>
+                <button class="camera-capture" id="captureBtn">
+                    <span class="capture-ring"></span>
+                </button>
+                <div style="width: 56px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
